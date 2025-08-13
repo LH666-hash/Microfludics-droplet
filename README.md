@@ -101,22 +101,7 @@ The intuitive graphical interface allows researchers to input experimental condi
 - The GUI supports multi-window operation, with parameter input windows and result windows opening separately
 
 
-## File Structure
-Microfludics-droplet/
-├── main.py               # Main application script
-├── requirements.txt      # Dependencies list
-├── background.jpg        # Background image
-├── desk_2.png            # UI illustration
-├── desk_3.png            # UI illustration
-├── double modle.h5       # ML model for predictions
-├── double modle2.h5      # Additional ML models
-└── ... (other model files)
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 
 ## Contact
 
-For questions or issues, please contact the project maintainer at [your.email@example.com]
+For questions or issues, please contact the project maintainer at [18660636636@dlut.mail.edu.cn]
