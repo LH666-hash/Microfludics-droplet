@@ -69,12 +69,7 @@ The intuitive graphical interface allows researchers to input experimental condi
    *(Create a `requirements.txt` file with the libraries listed in "Software Requirements")*
 
 3. Prepare model files:
-   - Ensure all `.h5` model files (e.g., `double modle.h5`, `double modle2.h5`) are placed in the project root directory
-   - Update model paths in the code from absolute paths (e.g., `D:\double modle.h5`) to relative paths (e.g., `./double modle.h5`)
-
-4. Prepare image files:
-   - Place background images (`background.jpg`, `desk_2.png`, `desk_3.png`) in the project root directory
-   - Update image paths in the code to use relative paths (e.g., `./background.jpg`)
+   The model can be trained by using the model code we provide,and after training, you just need to replace the location of our MICA model.
 
 
 ## Usage Instructions
