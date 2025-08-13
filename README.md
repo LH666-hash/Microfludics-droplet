@@ -1,84 +1,122 @@
-# Microfludics-droplet
-The source code of the model can be found in the main part. The dataset and the trained model file (H5) can be found in the droplet_dataset branch.
-In this task, the Python version and all library versions are as follows.
-absl-py==2.1.0
-astunparse==1.6.3
-Bashutils==0.0.4
-certifi==2024.8.30
-charset-normalizer==3.4.0
-cloudpickle==3.1.0
-colorama==0.4.6
-contourpy==1.3.1
-cycler==0.12.1
-decorator==5.1.1
-dm-tree==0.1.8
-et_xmlfile==2.0.0
-filelock==3.16.1
-flatbuffers==24.3.25
-fonttools==4.55.0
-fsspec==2024.10.0
-gast==0.6.0
-google-pasta==0.2.0
-grpcio==1.67.1
-h5py==3.12.1
-idna==3.10
-Jinja2==3.1.4
-joblib==1.4.2
-Keras-Applications==1.0.8
-Keras-Preprocessing==1.1.2
-keras-self-attention==0.51.0
-kiwisolver==1.4.7
-layers==0.1.5
-libclang==18.1.1
-lightgbm==4.5.0
-Markdown==3.7
-markdown-it-py==3.0.0
-MarkupSafe==3.0.2
-matplotlib==3.9.2
-mdurl==0.1.2
-ml-dtypes==0.4.1
-mpmath==1.3.0
-namex==0.0.8
-natsort==8.4.0
-networkx==3.4.2
-numpy==1.26.4
-opencv-python==4.8.0.76
-openpyxl==3.1.5
-opt_einsum==3.4.0
-optree==0.13.0
-packaging==24.1
-pandas==2.2.3
-pillow==11.0.0
-pip==25.0.1
-protobuf==5.28.3
-pyDOE==0.3.8
-Pygments==2.18.0
-pyparsing==3.2.0
-python-dateutil==2.9.0.post0
-pytz==2024.2
-PyYAML==6.0.2
-requests==2.32.3
-rich==13.9.3
-scikit-learn==1.5.2
-scipy==1.14.1
-setuptools==65.5.0
-six==1.16.0
-sympy==1.13.1
-tensorboard==2.18.0
-tensorboard-data-server==0.7.2
-tensorflow==2.18.0
-tensorflow_intel==2.18.0
-tensorflow-io-gcs-filesystem==0.31.0
-tensorflow-probability==0.25.0
-termcolor==2.5.0
-tf_keras==2.18.0
-threadpoolctl==3.5.0
-torch==2.5.1
-torchvision==0.20.1
-tqdm==4.66.4
-typing_extensions==4.12.2
-tzdata==2024.2
-urllib3==2.2.3
-Werkzeug==3.0.6
-wheel==0.44.0
-wrapt==1.16.0
+# Microfluidics Droplet Prediction Tool
+
+A user-friendly GUI application for predicting and designing microfluidic droplet parameters, built with Python and machine learning models. This tool supports both single and double emulsion droplet analysis, providing researchers with efficient parameter prediction and directional design capabilities.
+
+
+## Project Overview
+
+This application integrates machine learning models to offer comprehensive microfluidic droplet analysis, including:
+- Prediction of droplet diameter (single/double emulsion)
+- Prediction of droplet generation rate
+- Directional design of target droplets based on input parameters
+
+The intuitive graphical interface allows researchers to input experimental conditions and obtain real-time predictions, streamlining the microfluidic experiment design process.
+
+
+## Key Features
+
+1. **Single Emulsion Analysis**
+   - Prediction of single emulsion droplet diameter
+   - Prediction of single emulsion droplet generation rate
+   - Directional design of target single emulsion droplets
+
+2. **Double Emulsion Analysis**
+   - Prediction of outer diameter of double emulsion droplets
+   - Prediction of inner diameter of double emulsion droplets
+   - Prediction of double emulsion droplet generation rate
+   - Directional design of target double emulsion droplets
+
+
+## Software Requirements
+
+- **Operating System**: Windows 10/11, macOS 10.15+, or Linux (Ubuntu 20.04+)
+- **Python Version**: 3.7-3.9 (compatible with TensorFlow)
+- **Required Libraries**:
+  - `tkinter` (for GUI)
+  - `tensorflow==2.10.0`
+  - `numpy>=1.19.5`
+  - `pandas>=1.3.5`
+  - `keras==2.10.0`
+  - `Pillow>=9.0.0`
+
+
+## Hardware Requirements
+
+- **Minimum Configuration**:
+  - CPU: Intel Core i5 or equivalent
+  - RAM: 8GB
+  - Storage: 1GB free space (for application and model files)
+  
+- **Recommended Configuration**:
+  - CPU: Intel Core i7 or equivalent
+  - RAM: 16GB
+  - GPU: NVIDIA GTX 1050 Ti or better (for accelerated model inference)
+  - Storage: 2GB free space
+
+
+## Installation Guide
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/LH666-hash/Microfludics-droplet.git
+   cd Microfludics-droplet
+   ```
+
+2. Install required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+   *(Create a `requirements.txt` file with the libraries listed in "Software Requirements")*
+
+3. Prepare model files:
+   - Ensure all `.h5` model files (e.g., `double modle.h5`, `double modle2.h5`) are placed in the project root directory
+   - Update model paths in the code from absolute paths (e.g., `D:\double modle.h5`) to relative paths (e.g., `./double modle.h5`)
+
+4. Prepare image files:
+   - Place background images (`background.jpg`, `desk_2.png`, `desk_3.png`) in the project root directory
+   - Update image paths in the code to use relative paths (e.g., `./background.jpg`)
+
+
+## Usage Instructions
+
+1. Run the application:
+   ```bash
+   python main.py  # Replace with your actual script filename
+   ```
+
+2. Select a function from the dropdown menu (e.g., "Prediction of single emulsion droplet diameter")
+
+3. Input parameters according to the specified ranges (e.g., 50μm < L1 < 250μm)
+
+4. Click "OK" to generate predictions
+
+5. View results in the pop-up window, including units (μm, Hz, μL/min, etc.)
+
+
+## Notes
+
+- All input parameters must be within the specified ranges to ensure valid predictions
+- Model performance depends on the training data; results should be validated with actual experiments
+- For best performance, close other memory-intensive applications when running the tool
+- The GUI supports multi-window operation, with parameter input windows and result windows opening separately
+
+
+## File Structure
+Microfludics-droplet/
+├── main.py               # Main application script
+├── requirements.txt      # Dependencies list
+├── background.jpg        # Background image
+├── desk_2.png            # UI illustration
+├── desk_3.png            # UI illustration
+├── double modle.h5       # ML model for predictions
+├── double modle2.h5      # Additional ML models
+└── ... (other model files)
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+
+## Contact
+
+For questions or issues, please contact the project maintainer at [your.email@example.com]
